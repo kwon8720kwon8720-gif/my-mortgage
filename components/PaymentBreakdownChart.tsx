@@ -9,9 +9,8 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  Legend,
 } from "recharts";
-import { formatCurrency } from "@/lib/utils";
+import { formatMoney } from "@/lib/utils";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 
 interface PaymentBreakdownChartProps {
@@ -31,7 +30,7 @@ export function PaymentBreakdownChart({
     {
       name: "Principal & Interest",
       value: principalAndInterest,
-      fill: "#2563eb",
+      fill: "#4f46e5",
     },
     {
       name: "Property Tax",
@@ -55,7 +54,7 @@ export function PaymentBreakdownChart({
       return (
         <div className="rounded-lg border border-slate-200 bg-white p-3 shadow-sm">
           <p className="text-sm font-medium text-slate-900">{payload[0].name}</p>
-          <p className="text-sm text-slate-600">{formatCurrency(payload[0].value)}</p>
+          <p className="text-sm text-slate-600">{formatMoney(payload[0].value)}</p>
         </div>
       );
     }
@@ -79,7 +78,10 @@ export function PaymentBreakdownChart({
             <YAxis
               tick={{ fill: "#64748b", fontSize: 12 }}
               tickLine={{ stroke: "#cbd5e1" }}
-              tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
+              tickFormatter={(value) => {
+                const k = Math.round(value / 1000);
+                return `$${k}k`;
+              }}
             />
             <Tooltip content={<CustomTooltip />} />
             <Bar dataKey="value" radius={[8, 8, 0, 0]} />
@@ -89,4 +91,3 @@ export function PaymentBreakdownChart({
     </Card>
   );
 }
-

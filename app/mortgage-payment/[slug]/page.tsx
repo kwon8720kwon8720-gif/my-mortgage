@@ -116,7 +116,7 @@ export default async function MortgagePaymentPage({ params }: PageProps) {
               Mortgage Payment Calculator
             </h1>
             <p className="text-slate-600 text-sm sm:text-base">
-              Estimate your monthly payment for a ${priceK.toLocaleString("en-US")},000 home in {regionName} with a {rate}% interest rate
+              Estimate your monthly payment for a ${priceK.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")},000 home in {regionName} with a {rate}% interest rate
             </p>
           </div>
 

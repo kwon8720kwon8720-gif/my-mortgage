@@ -46,11 +46,30 @@ export function getPageTitle(priceK: number, rate: number, region: string): stri
   return `${priceK}k Home Mortgage Payment Calculator - ${rate}% Rate in ${regionName}`;
 }
 
+function formatNumberWithCommas(n: number): string {
+  const whole = Math.round(n);
+  const parts: string[] = [];
+  let remaining = Math.abs(whole);
+  
+  while (remaining > 0) {
+    const chunk = remaining % 1000;
+    remaining = Math.floor(remaining / 1000);
+    if (remaining > 0) {
+      parts.unshift(chunk.toString().padStart(3, "0"));
+    } else {
+      parts.unshift(chunk.toString());
+    }
+  }
+  
+  if (parts.length === 0) return "0";
+  return parts.join(",");
+}
+
 export function getPageDescription(priceK: number, rate: number, region: string): string {
   const regionName = region
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
-  return `Calculate your estimated monthly mortgage payment for a $${priceK.toLocaleString("en-US")},000 home in ${regionName} with a ${rate}% interest rate. Includes principal, interest, taxes, insurance, and HOA fees.`;
+  return `Calculate your estimated monthly mortgage payment for a $${formatNumberWithCommas(priceK)},000 home in ${regionName} with a ${rate}% interest rate. Includes principal, interest, taxes, insurance, and HOA fees.`;
 }
 

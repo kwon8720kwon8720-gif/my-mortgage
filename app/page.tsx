@@ -1,7 +1,6 @@
 import { MortgageCalculator } from "@/components/MortgageCalculator";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { faqData } from "@/lib/pseo/templates";
-import { ChevronDown, ChevronUp } from "lucide-react";
 import { Accordion } from "@/components/ui/Accordion";
 
 export default function Home() {
@@ -18,6 +17,12 @@ export default function Home() {
             a loan offer, financial advice, or guarantee of any rates or terms.
           </p>
         </section>
+
+        <div className="mb-8 p-4 bg-amber-50 border border-amber-200 rounded-xl">
+          <p className="text-sm text-slate-700">
+            <strong className="font-semibold text-slate-900">Disclaimer:</strong> This calculator is for educational and estimation purposes only. It does not constitute a loan offer, financial advice, or guarantee of any rates or terms. Actual mortgage rates, terms, and payments depend on your creditworthiness, lender policies, and current market conditions. Always consult with qualified mortgage professionals for accurate quotes and loan terms.
+          </p>
+        </div>
 
         <section className="py-8">
           <MortgageCalculator />
@@ -38,7 +43,7 @@ export default function Home() {
               <div>
                 <h3 className="font-semibold text-slate-900 mb-2">Step 2: Set Loan Terms</h3>
                 <p>
-                  Choose your loan term (15 or 30 years) and enter the interest rate. The interest rate significantly impacts your monthly payment and total interest paid over the life of the loan.
+                  Choose your loan term (10, 15, 20, or 30 years) and enter the interest rate. The interest rate significantly impacts your monthly payment and total interest paid over the life of the loan.
                 </p>
               </div>
               <div>
@@ -113,10 +118,10 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-wrap gap-4 pt-4">
-              <a href="/privacy" className="text-blue-600 hover:underline">
+              <a href="/privacy" className="text-indigo-600 hover:underline">
                 Privacy Policy
               </a>
-              <a href="/contact" className="text-blue-600 hover:underline">
+              <a href="/contact" className="text-indigo-600 hover:underline">
                 Contact
               </a>
             </div>

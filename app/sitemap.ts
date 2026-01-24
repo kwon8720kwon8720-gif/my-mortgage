@@ -1,28 +1,29 @@
 import { MetadataRoute } from "next";
-import { pagesCache } from "@/lib/pseo/pagesCache";
+import { STATES, CREDIT_TIERS, POST_COUNT } from "@/lib/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
-  const slugs = pagesCache.getSlugsForBuild();
-
-  const entries: MetadataRoute.Sitemap = [
+  
+  const urls: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: "2025-01-01",
-      changeFrequency: "monthly",
       priority: 1.0,
     },
   ];
-
-  for (const slug of slugs) {
-    entries.push({
-      url: `${baseUrl}/mortgage-payment/${slug}`,
-      lastModified: "2025-01-01",
-      changeFrequency: "monthly",
-      priority: 0.8,
-    });
+  
+  // Generate exactly POST_COUNT pSEO pages
+  let count = 0;
+  for (const state of STATES) {
+    if (count >= POST_COUNT) break;
+    for (const tier of CREDIT_TIERS) {
+      if (count >= POST_COUNT) break;
+      urls.push({
+        url: `${baseUrl}/mortgage-rates/${state.slug}/${tier}`,
+        priority: 0.8,
+      });
+      count++;
+    }
   }
-
-  return entries;
+  
+  return urls;
 }
-
