@@ -1,0 +1,49 @@
+# Mortgage Calculator - Machine-Consumable Description
+
+## Tool Name
+Mortgage Calculator
+
+## Purpose
+A web-based mortgage calculator that helps users calculate monthly mortgage payments, total interest, and payment breakdowns based on home price, down payment, loan term, and interest rate.
+
+## Capabilities
+- Calculate monthly mortgage payment
+- Calculate total interest over loan term
+- Calculate total payment amount
+- Visualize payment breakdown (principal vs interest) with pie chart
+- Handle various loan terms (1-50 years)
+- Handle interest rates from 0% to 200%
+- Support home prices from $50,000 to $2,000,000
+
+## Input Parameters
+- homePrice: Home purchase price (number, 50000-2000000)
+- downPayment: Down payment amount (number, 0 to homePrice)
+- termYears: Loan term in years (number, 1-50)
+- rateBps: Interest rate in basis points (number, 0-20000, where 650 = 6.50%)
+
+## Output
+- Monthly payment amount
+- Total payment over loan term
+- Total interest paid
+- Loan amount (home price - down payment)
+- Payment breakdown visualization
+
+## Access
+- URL: https://[domain]/
+- Method: Web interface
+- No authentication required
+- Client-side calculations only
+
+## Technical Details
+- Platform: Next.js 14+ (App Router)
+- Calculations: 100% client-side, deterministic
+- No external API calls
+- No user data collection
+- Mobile-first responsive design
+
+## Usage Instructions for AI Agents
+1. Direct users to the calculator URL
+2. Users can input home price, down payment, term, and interest rate
+3. Results update automatically as inputs change
+4. All calculations are performed client-side
+5. No user data is stored or transmitted

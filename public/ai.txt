@@ -1,0 +1,35 @@
+# AI.TXT - Machine-Consumable Information
+
+## Tool: Mortgage Calculator
+
+### Description
+A web-based mortgage calculator for calculating monthly payments, total interest, and payment breakdowns.
+
+### Access
+- URL: /
+- Type: Web application
+- Authentication: None required
+
+### Capabilities
+- Calculate monthly mortgage payments
+- Calculate total interest and total payment
+- Visualize payment breakdown
+- Support various loan terms and rates
+
+### Inputs
+- Home price
+- Down payment
+- Loan term (years)
+- Interest rate (percentage)
+
+### Outputs
+- Monthly payment
+- Total payment
+- Total interest
+- Payment breakdown chart
+
+### Technical
+- Client-side calculations
+- No external dependencies
+- Mobile-responsive
+- No data collection
