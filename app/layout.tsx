@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import Script from "next/script";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -52,6 +52,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <Script
+  src="https://www.googletagmanager.com/gtag/js?id=G-QLSJ4X8WZ7"
+  strategy="afterInteractive"
+/>
+<Script id="ga4" strategy="afterInteractive">
+  {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QLSJ4X8WZ7');
+  `}
+</Script>
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>{children}</body>
     </html>
