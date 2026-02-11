@@ -11,15 +11,20 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Mortgage Calculator",
   description: "Calculate your monthly mortgage payment and total interest",
-  verification: {
-    g00gle: "tdiNWITaBCpjhVm1yPt2TSKrYCdwFTrN9-5gA1z-M4A",
-  },
 };
+
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+
+
+
+
+
+
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
